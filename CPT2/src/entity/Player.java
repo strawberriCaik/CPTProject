@@ -82,7 +82,7 @@ public class Player extends Entity {
 			//checking for tile collision
 			collisionOn = false;//set collision false
 			gp.cChecker.checkTile(this);// check if object has collided with a collision tile
-			if (collisionOn == false) {//if false, player can move
+			if (collisionOn == false ) {//if false, player can move
 				switch(direction) {
 					case "up": 
 						worldY  -= speed; // SUBTRACTS playerY direction by speed which is 4 so that the object will go up 4 pixels

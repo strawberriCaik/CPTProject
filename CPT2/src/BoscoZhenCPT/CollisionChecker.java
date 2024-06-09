@@ -103,7 +103,7 @@ public class CollisionChecker {
 				//Main.navigation.show(Main.centerPanel, "Home");// show home panel
 				gp.homePanel.checkField();
 			}
-			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 14) {//check if user pressed break button 
+			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 14) {//check if user pressed break 
 				Main.navigation.show(Main.centerPanel, "Shop");// show shop panel	
 			}
 			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 17) {//check if user pressed break button on tile strawberry

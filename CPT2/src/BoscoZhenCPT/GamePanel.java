@@ -21,6 +21,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public static int[] inventory = new int [5];//inventory for player (0 = carrot seeds, 1 = strawberry seeds, 2 = carrots, 3= strawberries, 4 = coins)
 	public static boolean strawberry = false; // for player check if they want to plant strawberry 
 	public static boolean carrot = false; // for player check if they want to plant carrot 
+	public static boolean shop = false;
 	// FPS	
 	int FPS = 60; //we need to have 60 fps or else when we press a key with movement, the object updates the screen to fast and goes out of the screen
 	
@@ -79,7 +80,7 @@ public class GamePanel extends JPanel implements Runnable{
 				
 			}	
 			if (timer >= 1000000000) {
-				System.out.println("FPS: " + drawCount);
+				//System.out.println("FPS: " + drawCount);
 				drawCount =0;
 				timer = 0;
 			}
