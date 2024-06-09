@@ -123,13 +123,11 @@ public class Player extends Entity {
 		if (keyH.Plant1 == true) {
 			GamePanel.carrot = true;
 			gp.cChecker.interactTile(this);
-			System.out.println("Checking");
 		}
 		keyH.Plant1 = false;
 		if (keyH.Plant2 == true) {
 			GamePanel.strawberry = true;
 			gp.cChecker.interactTile(this);
-			System.out.println("Checking");
 		}
 		GamePanel.carrot = false;
 		GamePanel.strawberry = false;

@@ -5,5 +5,4 @@ To do list:
 - Instruction screen
 - Quest Menu
 - Home Menu
-- Planting 
 - extra stuff

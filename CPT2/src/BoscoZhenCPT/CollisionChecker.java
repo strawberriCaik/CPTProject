@@ -79,25 +79,26 @@ public class CollisionChecker {
 		int entityTopRow = entityTopWorldY/gp.tileSize;
 		int entityBottomRow = entityBottomWorldY/gp.tileSize;
 		
-		int tileNum1 = 0, tileNum2 = 0;
+		int tileNum1 = 0;
 		int EMid = 0;
 		
 		switch(e.direction) {
 		case "up":
 			entityTopRow = (entityTopWorldY - e.speed)/gp.tileSize; //finds what tile player is trying to step in
 			tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityTopRow];//check player left 
-			tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];//check player right
 			
 			 EMid = (entityLeftCol + entityRightCol)/2; 
 			tileNum1 = gp.tileM.mapTileNum[EMid][entityTopRow];
 			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 0) {//check if user pressed break button 
 				gp.tileM.mapTileNum [EMid][entityTopRow] = 8;//replace tile with hole tile
 			}
-			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 8 && GamePanel.carrot == true) {//check if user pressed 1 button 
+			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 8 && GamePanel.carrot == true && GamePanel.inventory [0] > 0) {//check if user pressed 1 button 
 				gp.tileM.mapTileNum [EMid][entityTopRow] = 16;//replace tile with carrot seeds tile
+				GamePanel.inventory[0]--;
 			}
-			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 8 && GamePanel.strawberry == true) {//check if user pressed 2 button 
+			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 8 && GamePanel.strawberry == true && GamePanel.inventory [1] > 0) {//check if user pressed 2 button 
 				gp.tileM.mapTileNum [EMid][entityTopRow] = 15;//replace tile with strawberry seeds tile
+				GamePanel.inventory[1]--;
 			}
 			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 13) {//check if user pressed break button 
 				//Main.navigation.show(Main.centerPanel, "Home");// show home panel
@@ -118,17 +119,18 @@ public class CollisionChecker {
 		case "down":
 			entityBottomRow = (entityBottomWorldY + e.speed)/gp.tileSize; //finds what tile player is trying to step in
 			tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityBottomRow];//check player left 
-			tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityBottomRow];//check player right
 			 EMid = (entityLeftCol + entityRightCol)/2; 
 			tileNum1 = gp.tileM.mapTileNum[EMid][entityBottomRow];
 			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 0) {//check if user pressed break button
 				gp.tileM.mapTileNum [EMid][entityBottomRow] = 8;//replace tile with hole tile
 			}
-			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 8 && GamePanel.carrot == true) {//check if user pressed 1 button 
+			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 8 && GamePanel.carrot == true && GamePanel.inventory [0] > 0) {//check if user pressed 1 button 
 				gp.tileM.mapTileNum [EMid][entityBottomRow] = 16;//replace tile with carrot seeds tile
+				GamePanel.inventory[0]--;
 			}
-			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 8 && GamePanel.strawberry == true) {//check if user pressed 2 button 
+			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 8 && GamePanel.strawberry == true && GamePanel.inventory [1] > 0) {//check if user pressed 2 button 
 				gp.tileM.mapTileNum [EMid][entityBottomRow] = 15;//replace tile with strawberry seeds tile
+				GamePanel.inventory[1]--;
 			}
 			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 13) {//check if user pressed break button
 				Main.navigation.show(Main.centerPanel, "Home");// show home panel
@@ -148,17 +150,18 @@ public class CollisionChecker {
 		case "left":
 			entityLeftCol = (entityLeftWorldX - e.speed)/gp.tileSize; //finds what tile player is trying to step in
 			tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityTopRow];//check player left 
-			tileNum2 = gp.tileM.mapTileNum[entityLeftCol][entityBottomRow];//check player right
 			EMid = (entityTopRow + entityBottomRow)/2; 
 			tileNum1 = gp.tileM.mapTileNum[entityLeftCol][EMid];
 			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 0) {//check if user pressed break button
 				gp.tileM.mapTileNum [entityLeftCol][EMid] = 8;//replace tile with hole tile
 			}
-			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 8 && GamePanel.carrot == true) {//check if user pressed 1 button
+			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 8 && GamePanel.carrot == true && GamePanel.inventory [0] > 0) {//check if user pressed 1 button
 				gp.tileM.mapTileNum [entityLeftCol] [EMid]= 16;//replace tile with carrot seeds tile
+				GamePanel.inventory[0]--;
 			}
-			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 8 && GamePanel.strawberry == true) {//check if user pressed 2 button
+			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 8 && GamePanel.strawberry == true && GamePanel.inventory [1] > 0) {//check if user pressed 2 button
 				gp.tileM.mapTileNum [entityLeftCol] [EMid]= 15;//replace tile with strawberry seeds tile
+				GamePanel.inventory[1]--;
 			}
 			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 13) {//check if user pressed break button
 				Main.navigation.show(Main.centerPanel, "Home");// show home panel
@@ -178,17 +181,18 @@ public class CollisionChecker {
 		case "right":
 			entityRightCol = (entityRightWorldX + e.speed)/gp.tileSize; //finds what tile player is trying to step in
 			tileNum1 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];//check player left 
-			tileNum2 = gp.tileM.mapTileNum[entityRightCol][entityBottomRow];//check player right
 			EMid = (entityTopRow + entityBottomRow)/2; 
 			tileNum1 = gp.tileM.mapTileNum[entityRightCol][EMid];
 			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 0) {//check if user pressed break button
 				gp.tileM.mapTileNum [entityRightCol] [EMid]= 8;//replace tile with hole tile
 			}
-			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 8 && GamePanel.carrot == true) {//check if user pressed 1 button
+			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 8 && GamePanel.carrot == true && GamePanel.inventory [0] > 0) {//check if user pressed 1 button
 				gp.tileM.mapTileNum [entityRightCol] [EMid]= 16;//replace tile with carrot seeds tile
+				GamePanel.inventory[0]--;
 			}
-			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 8 && GamePanel.strawberry == true) {//check if user pressed 2 button
+			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 8 && GamePanel.strawberry == true && GamePanel.inventory [1] > 0) {//check if user pressed 2 button
 				gp.tileM.mapTileNum [entityRightCol] [EMid]= 15;//replace tile with strawberry seeds tile
+				GamePanel.inventory[1]--;
 			}
 			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 13) {//check if user pressed break button
 				Main.navigation.show(Main.centerPanel, "Home");// show home panel
