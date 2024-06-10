@@ -71,18 +71,22 @@ public class tileManager {
 			tile [9] = new Tile();
 			tile [9].image = ImageIO.read(getClass().getResource("/tiles/shop1.png"));
 			tile [9].collision = true;
+			tile [9].interact = true;
 
 			tile [10] = new Tile();
 			tile [10].image = ImageIO.read(getClass().getResource("/tiles/shop2.png"));
 			tile [10].collision = true;
+			tile [10].interact = true;
 			
 			tile [11] = new Tile();
 			tile [11].image = ImageIO.read(getClass().getResource("/tiles/shop3.png"));
 			tile [11].collision = true;
+			tile [11].interact = true;
 			
 			tile [12] = new Tile();
 			tile [12].image = ImageIO.read(getClass().getResource("/tiles/box.png"));
 			tile [12].collision = true;
+			tile [12].interact = true;
 			
 			tile [13] = new Tile();
 			tile [13].image = ImageIO.read(getClass().getResource("/tiles/carpet.png"));

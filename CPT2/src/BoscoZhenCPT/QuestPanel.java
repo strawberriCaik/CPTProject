@@ -15,8 +15,8 @@ public class QuestPanel extends BasePanel{
 	
 	Button back,inv0,inv1,inv2,inv3,inv4,finish1,finish2,finish3,finish4,finish5;
 
-	public BufferedImage questM,quest1,quest2,quest3,quest4,quest5,itemsM;
-	
+	public BufferedImage questM,quest1,quest2,quest3,quest4,quest5,itemsM,check;
+	public boolean [] lock = new boolean [5];//set all locks to false 
 	
 	
 	public QuestPanel (GamePanel gp) {
@@ -51,6 +51,7 @@ public class QuestPanel extends BasePanel{
 			quest4 = ImageIO.read(getClass().getResourceAsStream("/tiles/Quest4.png"));
 			quest5 = ImageIO.read(getClass().getResourceAsStream("/tiles/Quest5.png"));
 			itemsM = ImageIO.read(getClass().getResourceAsStream("/tiles/itemsM.png"));
+			check = ImageIO.read(getClass().getResourceAsStream("/tiles/check.png"));
 		}catch(IOException e) {//catch 
 			e.printStackTrace();// handles errors
 		}
@@ -81,11 +82,29 @@ public class QuestPanel extends BasePanel{
 		inv4.draw(g);
 		
 		generateButtons("Trade", g);// generate buttons
-		//finish1.draw(g);
-		//finish2.draw(g);
+		generateChecks(g2);
 		
 		back.draw(g);
 	}
+	
+	private void generateChecks(Graphics g2) {
+		int x = 345;
+		int y = 120;//starting y position
+		int m = 0;
+		
+		for (int i = 0; i <lock.length; i++) {
+			if (i > 2) {
+				x = 705;
+				m = i - 3;
+			}
+			
+			if(lock[i] == true) {
+				g2.drawImage(check,x,y+(m*160),30,45,null);
+			}
+			m++;
+		}
+	}
+	
 	/*
 	 * pre: String message,Graphics g
 	 * purpose: to generate buttons for buy and sell menu with different message on button 
@@ -103,54 +122,58 @@ public class QuestPanel extends BasePanel{
 				m = i - 3;
 			}
 			
-			//Button tempButton = new Button (message, 770,y+(i*60)+offset,60,30);// drawing button with message 
 			questButtons.get(i).label = message;
 			questButtons.get(i).x = x;
 			questButtons.get(i).y = y+(m*165);
 			questButtons.get(i).width = 80;
 			questButtons.get(i).height = 30;
-			
-			//shopButtons.set(i, tempButton);// updating button in array
 			questButtons.get(i).draw(g);// draw button from array
 			m++;
+			
 			
 		}
 	}
 	
 	@Override public void mouseReleased(MouseEvent e) {
 		if (activeButton == finish1) {
-			if(GamePanel.inventory [4] >= 1500 && GamePanel.inventory [2] >= 200) {
+			if(GamePanel.inventory [4] >= 1500 && GamePanel.inventory [2] >= 200 && lock [0] == false) {
 				GamePanel.inventory [4] -= 1500;
 				GamePanel.inventory [2] -= 200;
 				gp.player.speed = 6;
+				lock [0] = true;
 			}
 			
 		}
 		if (activeButton == finish2) { 
-			if(GamePanel.inventory [4] >= 3500 && GamePanel.inventory [3] >= 250) {
+			if(GamePanel.inventory [4] >= 3500 && GamePanel.inventory [3] >= 250 && lock [1] == false) {
 				GamePanel.inventory [4] -= 3500;
 				GamePanel.inventory [3] -= 250;
 				gp.cChecker.harvest = 2;
+				lock [1] = true;
 			}
 		}
 		if (activeButton == finish3) {
-			if(GamePanel.inventory [4] >= 7000) {
+			if(GamePanel.inventory [4] >= 7000 && lock [2] == false) {
 				GamePanel.inventory [4] -= 6900;
-				gp.cChecker.harvest = 2;
+				lock [2] = true;
 			}
 		}
+		// FOR TESTING PURPOSES, QUEST 4 IS NEVER ON LOCK SO THAT USER CAN TEST IF ALL QUESTS WORK
 		if (activeButton == finish4) {
-			if(GamePanel.inventory [4] >= 1) {
+			if(GamePanel.inventory [4] >= 1) {// && lock [3] == false
 				GamePanel.inventory [4] +=9999;
 				GamePanel.inventory [3] +=1000;
 				GamePanel.inventory [2] +=1000;
+				//lock [3] = true;
 			}
 		}
+		
 		if (activeButton == finish5) {
-			if(GamePanel.inventory [4] >= 300) {
+			if(GamePanel.inventory [4] >= 300 && lock [4] == false) {
 				GamePanel.inventory [4] -=300;
 				GamePanel.inventory [0] +=50;
 				GamePanel.inventory [1] +=50;
+				lock [4] = true;
 			}
 		}
 		//needs to swap to game panel to allow the shop panel to refresh

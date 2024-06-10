@@ -105,7 +105,8 @@ public class CollisionChecker {
 				//Main.navigation.show(Main.centerPanel, "Home");// show home panel
 				gp.homePanel.checkField();
 			}
-			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 14) {//check if user pressed break 
+			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 14 || gp.tileM.mapTileNum [EMid][entityTopRow] == 9 || gp.tileM.mapTileNum [EMid][entityTopRow] == 10
+					|| gp.tileM.mapTileNum [EMid][entityTopRow] == 11 || gp.tileM.mapTileNum [EMid][entityTopRow] == 12) {//check if user pressed break 
 				Main.navigation.show(Main.centerPanel, "Shop");// show shop panel	
 			}
 			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 17) {//check if user pressed break button on tile strawberry
@@ -116,7 +117,7 @@ public class CollisionChecker {
 				gp.tileM.mapTileNum [EMid][entityTopRow] = 8;//replace strawberry with hole
 				GamePanel.inventory[2]+=harvest;
 			}
-			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 20) {//check if user pressed break button
+			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 20|| gp.tileM.mapTileNum [EMid][entityTopRow] == 19) {//check if user pressed break button
 				Main.navigation.show(Main.centerPanel, "Quest");// show home panel
 			}
 			break;
@@ -125,32 +126,32 @@ public class CollisionChecker {
 			tileNum1 = gp.tileM.mapTileNum[entityLeftCol][entityBottomRow];//check player left 
 			 EMid = (entityLeftCol + entityRightCol)/2; 
 			tileNum1 = gp.tileM.mapTileNum[EMid][entityBottomRow];
-			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 0) {//check if user pressed break button
+			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [EMid][entityBottomRow] == 0) {//check if user pressed break button
 				gp.tileM.mapTileNum [EMid][entityBottomRow] = 8;//replace tile with hole tile
 			}
-			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 8 && GamePanel.carrot == true && GamePanel.inventory [0] > 0) {//check if user pressed 1 button 
+			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [EMid][entityBottomRow] == 8 && GamePanel.carrot == true && GamePanel.inventory [0] > 0) {//check if user pressed 1 button 
 				gp.tileM.mapTileNum [EMid][entityBottomRow] = 16;//replace tile with carrot seeds tile
 				GamePanel.inventory[0]--;
 			}
-			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 8 && GamePanel.strawberry == true && GamePanel.inventory [1] > 0) {//check if user pressed 2 button 
+			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [EMid][entityBottomRow] == 8 && GamePanel.strawberry == true && GamePanel.inventory [1] > 0) {//check if user pressed 2 button 
 				gp.tileM.mapTileNum [EMid][entityBottomRow] = 15;//replace tile with strawberry seeds tile
 				GamePanel.inventory[1]--;
 			}
-			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 13) {//check if user pressed break button
+			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityBottomRow] == 13) {//check if user pressed break button
 				Main.navigation.show(Main.centerPanel, "Home");// show home panel
 			}
-			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 14) {//check if user pressed break button 
+			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityBottomRow] == 14) {//check if user pressed break button 
 				Main.navigation.show(Main.centerPanel, "Shop");// show home panel	
 			}
-			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 17) {//check if user pressed break button on tile strawberry
+			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [EMid][entityBottomRow] == 17) {//check if user pressed break button on tile strawberry
 				gp.tileM.mapTileNum [EMid][entityBottomRow] = 8;//replace strawberry with hole
 				GamePanel.inventory[3]+=harvest;
 			}
-			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 18) {//check if user pressed break button on tile carrot
+			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [EMid][entityBottomRow] == 18) {//check if user pressed break button on tile carrot
 				gp.tileM.mapTileNum [EMid][entityBottomRow] = 8;//replace strawberry with hole
 				GamePanel.inventory[2]+=harvest;
 			}
-			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 20) {//check if user pressed break button
+			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityBottomRow] == 20|| gp.tileM.mapTileNum [EMid][entityBottomRow] == 19) {//check if user pressed break button
 				Main.navigation.show(Main.centerPanel, "Quest");// show quest panel
 			}
 			break;
@@ -184,7 +185,7 @@ public class CollisionChecker {
 				gp.tileM.mapTileNum [entityLeftCol][EMid] = 8;//replace tile with hole tile
 				GamePanel.inventory[2]+=harvest;
 			}
-			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 20) {//check if user pressed break button
+			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 20 || gp.tileM.mapTileNum [entityLeftCol][EMid] == 19) {//check if user pressed break button
 				Main.navigation.show(Main.centerPanel, "Quest");// show quest panel
 			}
 			break;
@@ -193,32 +194,33 @@ public class CollisionChecker {
 			tileNum1 = gp.tileM.mapTileNum[entityRightCol][entityTopRow];//check player left 
 			EMid = (entityTopRow + entityBottomRow)/2; 
 			tileNum1 = gp.tileM.mapTileNum[entityRightCol][EMid];
-			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 0) {//check if user pressed break button
+			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [entityRightCol][EMid] == 0) {//check if user pressed break button
 				gp.tileM.mapTileNum [entityRightCol] [EMid]= 8;//replace tile with hole tile
 			}
-			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 8 && GamePanel.carrot == true && GamePanel.inventory [0] > 0) {//check if user pressed 1 button
+			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [entityRightCol][EMid] == 8 && GamePanel.carrot == true && GamePanel.inventory [0] > 0) {//check if user pressed 1 button
 				gp.tileM.mapTileNum [entityRightCol] [EMid]= 16;//replace tile with carrot seeds tile
 				GamePanel.inventory[0]--;
 			}
-			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 8 && GamePanel.strawberry == true && GamePanel.inventory [1] > 0) {//check if user pressed 2 button
+			if (gp.tileM.tile[tileNum1].plant == true && gp.tileM.mapTileNum [entityRightCol][EMid] == 8 && GamePanel.strawberry == true && GamePanel.inventory [1] > 0) {//check if user pressed 2 button
 				gp.tileM.mapTileNum [entityRightCol] [EMid]= 15;//replace tile with strawberry seeds tile
 				GamePanel.inventory[1]--;
 			}
-			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 13) {//check if user pressed break button
+			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [entityRightCol][EMid] == 13) {//check if user pressed break button
 				Main.navigation.show(Main.centerPanel, "Home");// show home panel
 			}
-			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 14) {//check if user pressed break button
+			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [entityRightCol][EMid] == 14|| gp.tileM.mapTileNum [entityRightCol][EMid] == 9 || gp.tileM.mapTileNum [entityRightCol][EMid] == 10
+					|| gp.tileM.mapTileNum [entityRightCol][EMid] == 11 || gp.tileM.mapTileNum [entityRightCol][EMid] == 12) {//check if user pressed break button
 				Main.navigation.show(Main.centerPanel, "Shop");// show home panel
 			}
-			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 17) {//check if user pressed break button on tile strawberry
+			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [entityRightCol][EMid] == 17) {//check if user pressed break button on tile strawberry
 				gp.tileM.mapTileNum [entityRightCol][EMid] = 8;//replace tile with hole tile
 				GamePanel.inventory[3]+=harvest;
 			}
-			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 18) {//check if user pressed break button on tile carrot
+			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [entityRightCol][EMid] == 18) {//check if user pressed break button on tile carrot
 				gp.tileM.mapTileNum [entityRightCol][EMid] = 8;//replace tile with hole tile
 				GamePanel.inventory[2]+=harvest;
 			}
-			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 20) {//check if user pressed break button
+			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 20 || gp.tileM.mapTileNum [entityLeftCol][EMid] == 19) {//check if user pressed break button
 				Main.navigation.show(Main.centerPanel, "Quest");// show quest panel
 			}
 			break;
