@@ -123,22 +123,40 @@ public class QuestPanel extends BasePanel{
 				GamePanel.inventory [4] -= 1500;
 				GamePanel.inventory [2] -= 200;
 				gp.player.speed = 6;
-				System.out.println("Check");
 			}
 			
 		}
-		if (activeButton == finish2) {
-			Main.navigation.show(Main.centerPanel, "Game");
+		if (activeButton == finish2) { 
+			if(GamePanel.inventory [4] >= 3500 && GamePanel.inventory [3] >= 250) {
+				GamePanel.inventory [4] -= 3500;
+				GamePanel.inventory [3] -= 250;
+				gp.cChecker.harvest = 2;
+			}
 		}
 		if (activeButton == finish3) {
-			Main.navigation.show(Main.centerPanel, "Game");
+			if(GamePanel.inventory [4] >= 7000) {
+				GamePanel.inventory [4] -= 6900;
+				gp.cChecker.harvest = 2;
+			}
 		}
 		if (activeButton == finish4) {
-			Main.navigation.show(Main.centerPanel, "Game");
+			if(GamePanel.inventory [4] >= 1) {
+				GamePanel.inventory [4] +=9999;
+				GamePanel.inventory [3] +=1000;
+				GamePanel.inventory [2] +=1000;
+			}
 		}
 		if (activeButton == finish5) {
-			Main.navigation.show(Main.centerPanel, "Game");
+			if(GamePanel.inventory [4] >= 300) {
+				GamePanel.inventory [4] -=300;
+				GamePanel.inventory [0] +=50;
+				GamePanel.inventory [1] +=50;
+			}
 		}
+		//needs to swap to game panel to allow the shop panel to refresh
+        Main.navigation.show(Main.centerPanel, "Game");
+        Main.navigation.show(Main.centerPanel, "Quest");
+        
 		if (activeButton == back) {
 			Main.navigation.show(Main.centerPanel, "Game");
 		}
