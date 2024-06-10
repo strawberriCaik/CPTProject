@@ -41,7 +41,6 @@ public class ShopPanel extends BasePanel{
 		buySS = new Button ("", 0,0,0,0);
 		
 		buttons = new ArrayList<Button>(Arrays.asList(new Button[]{buy,sell,back}));// button array list for shop menu
-		
 		shopButtons = new ArrayList<Button>(Arrays.asList(new Button[]{buyC,buyS,buyCS,buySS}));// button array list for menu
 		getImage();// calls get image method to gather images from folders
 		setFocusable(true);// focus on shop panel so that you can do stuff on this panel

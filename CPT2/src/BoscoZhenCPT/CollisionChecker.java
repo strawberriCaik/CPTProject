@@ -102,8 +102,7 @@ public class CollisionChecker {
 				GamePanel.inventory[1]--;
 			}
 			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 13) {//check if user pressed break button 
-				//Main.navigation.show(Main.centerPanel, "Home");// show home panel
-				gp.homePanel.checkField();
+				Main.navigation.show(Main.centerPanel, "Home");// show home panel
 			}
 			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 14 || gp.tileM.mapTileNum [EMid][entityTopRow] == 9 || gp.tileM.mapTileNum [EMid][entityTopRow] == 10
 					|| gp.tileM.mapTileNum [EMid][entityTopRow] == 11 || gp.tileM.mapTileNum [EMid][entityTopRow] == 12) {//check if user pressed break 
