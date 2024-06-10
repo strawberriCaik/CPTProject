@@ -23,6 +23,7 @@ public class BasePanel extends JPanel implements MouseListener, MouseMotionListe
 	public static final Font MENU_FONT = new Font(Font.SANS_SERIF, Font.PLAIN, 20); //Use the default sans serif font
 	//Java requires 5 default fonts to be implemented: Serif, SansSerif, Monospaced, Dialog, and DialogInput
 	ArrayList<Button> buttons;
+	ArrayList<Button> questButtons;// button list array for quest finish buttons
 	ArrayList<Button> shopButtons;// button list array for buy buttons 
 	Button activeButton;
 	
@@ -31,6 +32,7 @@ public class BasePanel extends JPanel implements MouseListener, MouseMotionListe
 		setLayout(null);
 		buttons = new ArrayList<Button>();
 		shopButtons = new ArrayList<Button>();
+		questButtons = new ArrayList<Button>();
 		activeButton = null;
 		addMouseListener(this);
 		addMouseMotionListener(this);
@@ -72,6 +74,11 @@ public class BasePanel extends JPanel implements MouseListener, MouseMotionListe
 			}
 		}
 		for(Button button: shopButtons) { //Assuming the buttons don't overlap
+			if(button.inRange(x, y)) {
+				activeButton = button;
+			}
+		}
+		for(Button button: questButtons) { //Assuming the buttons don't overlap
 			if(button.inRange(x, y)) {
 				activeButton = button;
 			}

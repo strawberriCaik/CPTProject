@@ -18,7 +18,7 @@ public class tileManager {
 	public tileManager(GamePanel gp) {
 		
 		this.gp = gp;
-		tile = new Tile [20];// we will create an array of 10 for 10 different tiles 
+		tile = new Tile [25];// we will create an array of 10 for 10 different tiles 
 		mapTileNum = new int [gp.maxScreenCol][gp.maxScreenRow];//create array with tile sizes  
 		getTileImage();//calls getTileImage method 
 		Main.navigation.show(Main.centerPanel, "Game");
@@ -107,6 +107,14 @@ public class tileManager {
 			tile [18] = new Tile();
 			tile [18].image = ImageIO.read(getClass().getResource("/tiles/carrotG.png"));
 			tile [18].breakable = true;
+			
+			tile [19] = new Tile();
+			tile [19].image = ImageIO.read(getClass().getResource("/tiles/questsM.png"));
+			tile [19].collision = true;
+			
+			tile [20] = new Tile();
+			tile [20].image = ImageIO.read(getClass().getResource("/tiles/floor.png"));
+			tile [20].interact = true;
 			
 		}catch(IOException e){
 			e.printStackTrace();

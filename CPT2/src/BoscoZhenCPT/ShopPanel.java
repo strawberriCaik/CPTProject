@@ -17,7 +17,7 @@ import tile.Tile;
 public class ShopPanel extends BasePanel{
 
 	JPanel pnl = new JPanel (); //JPanel for shop
-	Button buy,sell,quests,back, inv0,inv1,inv2,inv3,inv4,buyC,buyS,buyCS,buySS; 
+	Button buy,sell,back, inv0,inv1,inv2,inv3,inv4,buyC,buyS,buyCS,buySS; 
 	boolean isShop = true;
 	int [] buyMP = {-16,-18,-5,-6, 1};// buy menu prices (carrot, strawberry, carrot seed, and strawberry seed, num to add a value to an item
 	int [] sellMP = {7,8,2,3,-1};// sell menu prices (carrot, strawberry, carrot seed, and strawberry seed, num to subtract a value to an item
@@ -32,7 +32,6 @@ public class ShopPanel extends BasePanel{
 		// buttons for shop menu navigation 
 		buy = new Button ("Buy", 100,50,200,200);
 		sell = new Button ("Sell", 100,250,200,200);
-		quests = new Button ("Quests", 100,450,200,200);
 		back = new Button ("Back", 100,650,100,100);
 		
 		//init shopButtons
@@ -41,7 +40,7 @@ public class ShopPanel extends BasePanel{
 		buyCS = new Button ("", 0,0,0,0);
 		buySS = new Button ("", 0,0,0,0);
 		
-		buttons = new ArrayList<Button>(Arrays.asList(new Button[]{buy,sell,quests,back}));// button array list for shop menu
+		buttons = new ArrayList<Button>(Arrays.asList(new Button[]{buy,sell,back}));// button array list for shop menu
 		
 		shopButtons = new ArrayList<Button>(Arrays.asList(new Button[]{buyC,buyS,buyCS,buySS}));// button array list for menu
 		getImage();// calls get image method to gather images from folders
@@ -60,7 +59,7 @@ public class ShopPanel extends BasePanel{
 			sellM = ImageIO.read(getClass().getResource("/tiles/sellM.png"));
 			
 		}catch(IOException e) {//catch 
-			e.printStackTrace();// handles errors
+			e.printStackTrace();// prints errors
 		}
 	}
 	
@@ -101,7 +100,6 @@ public class ShopPanel extends BasePanel{
 		// drawing shop menu buttons 
 		buy.draw(g);
 		sell.draw(g);
-		quests.draw(g);	
 		back.draw(g);
 		
 		
@@ -153,9 +151,6 @@ public class ShopPanel extends BasePanel{
 		if(activeButton == sell) {
 			isShop=false;
 		}
-		if(activeButton == quests) {
-			
-		}
 		if (activeButton == buyC) {
 			if ((GamePanel.inventory[4] + tempPriceArray[0] >= 0 && isShop) || (GamePanel.inventory[2] > 0 && !isShop)) {
 				GamePanel.inventory[2]+=tempPriceArray[4];
@@ -181,7 +176,7 @@ public class ShopPanel extends BasePanel{
 			}
 		}
 		
-		
+		//needs to swap to game panel to allow the shop panel to refresh
         Main.navigation.show(Main.centerPanel, "Game");
         Main.navigation.show(Main.centerPanel, "Shop");
         

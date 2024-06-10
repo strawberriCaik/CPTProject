@@ -42,7 +42,8 @@ public class GamePanel extends JPanel implements Runnable{
 		this.addKeyListener(keyH);//input from KeyHandler
 		this.setFocusable(true);//allows game panel to receive key inputs
 		Main.centerPanel.add(new HomePanel(this), "Home"); //adds home panel
-		Main.centerPanel.add(new ShopPanel(), "Shop");
+		Main.centerPanel.add(new ShopPanel(), "Shop"); // adds shop panel
+		Main.centerPanel.add(new QuestPanel(this), "Quest");// adds quest panel
 		gameThread = new Thread(this);
 		gameThread.start(); // calls run method
 		

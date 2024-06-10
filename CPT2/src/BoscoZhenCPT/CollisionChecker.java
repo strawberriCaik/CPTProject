@@ -115,6 +115,9 @@ public class CollisionChecker {
 				gp.tileM.mapTileNum [EMid][entityTopRow] = 8;//replace strawberry with hole
 				GamePanel.inventory[2]++;
 			}
+			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 20) {//check if user pressed break button
+				Main.navigation.show(Main.centerPanel, "Quest");// show home panel
+			}
 			break;
 		case "down":
 			entityBottomRow = (entityBottomWorldY + e.speed)/gp.tileSize; //finds what tile player is trying to step in
@@ -145,6 +148,9 @@ public class CollisionChecker {
 			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 18) {//check if user pressed break button on tile carrot
 				gp.tileM.mapTileNum [EMid][entityBottomRow] = 8;//replace strawberry with hole
 				GamePanel.inventory[2]++;
+			}
+			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [EMid][entityTopRow] == 20) {//check if user pressed break button
+				Main.navigation.show(Main.centerPanel, "Quest");// show quest panel
 			}
 			break;
 		case "left":
@@ -177,6 +183,9 @@ public class CollisionChecker {
 				gp.tileM.mapTileNum [entityLeftCol][EMid] = 8;//replace tile with hole tile
 				GamePanel.inventory[2]++;
 			}
+			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 20) {//check if user pressed break button
+				Main.navigation.show(Main.centerPanel, "Quest");// show quest panel
+			}
 			break;
 		case "right":
 			entityRightCol = (entityRightWorldX + e.speed)/gp.tileSize; //finds what tile player is trying to step in
@@ -207,6 +216,9 @@ public class CollisionChecker {
 			if (gp.tileM.tile[tileNum1].breakable == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 18) {//check if user pressed break button on tile carrot
 				gp.tileM.mapTileNum [entityRightCol][EMid] = 8;//replace tile with hole tile
 				GamePanel.inventory[2]++;
+			}
+			if (gp.tileM.tile[tileNum1].interact == true && gp.tileM.mapTileNum [entityLeftCol][EMid] == 20) {//check if user pressed break button
+				Main.navigation.show(Main.centerPanel, "Quest");// show quest panel
 			}
 			break;
 		}//end of switch
