@@ -43,7 +43,14 @@ public class KeyHandler implements KeyListener {
 			GamePanel.strawberry = true;
 			Plant2 = true;
 		}
-		
+
+		if (GamePanel.move == false) {
+			System.out.println("how");
+			upP = false;
+			downP = false;
+			rightP = false;
+			leftP = false;
+		}
 	}
 
 	@Override

@@ -29,6 +29,7 @@ public class ShopPanel extends BasePanel{
 	
 	public ShopPanel() {
 		 super();
+		GamePanel.move = false;
 		// buttons for shop menu navigation 
 		buy = new Button ("Buy", 100,50,200,200);
 		sell = new Button ("Sell", 100,250,200,200);
@@ -180,6 +181,7 @@ public class ShopPanel extends BasePanel{
         Main.navigation.show(Main.centerPanel, "Shop");
         
         if(activeButton == back) {
+        	GamePanel.move = true;
 			Main.navigation.show(Main.centerPanel, "Game");
 		}
 	}

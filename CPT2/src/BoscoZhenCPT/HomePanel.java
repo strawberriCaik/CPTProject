@@ -2,12 +2,11 @@ package BoscoZhenCPT;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-
-import BoscoZhenCPT.BasePanel.Button;
 
 public class HomePanel extends BasePanel {
 	GamePanel gp;
@@ -17,6 +16,7 @@ public class HomePanel extends BasePanel {
 	
 	public HomePanel(GamePanel gp) {
 		super();
+		GamePanel.move = false;
 		this.gp = gp;//bring gamepanel into HomePanel class
 		getImage();//get images from folders into this class
 		setFocusable(true);// focus on home panel so that you can do stuff on this panel
@@ -67,9 +67,9 @@ public class HomePanel extends BasePanel {
 			repaint();
 		}
 		else {
-			System.out.println("checked");
 			counter = 0;
 			first = false;
+			GamePanel.move = true;
 			Main.navigation.show(Main.centerPanel, "Game");
 		}
 	}

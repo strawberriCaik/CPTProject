@@ -22,6 +22,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public static boolean strawberry = false; // for player check if they want to plant strawberry 
 	public static boolean carrot = false; // for player check if they want to plant carrot 
 	public static boolean shop = false;
+	public static boolean move = true;
 	// FPS	
 	int FPS = 60; //we need to have 60 fps or else when we press a key with movement, the object updates the screen to fast and goes out of the screen
 	
@@ -60,6 +61,7 @@ public class GamePanel extends JPanel implements Runnable{
 	 */
 	@Override
 	public void run() {
+		move = true;
 		double drawInterval = 1000000000/FPS; // gives us 60 FPS, 0.01666 seconds
 		double delta = 0;//check if interval time is reached
 		long lastTime = System.nanoTime();//check last time
@@ -84,6 +86,9 @@ public class GamePanel extends JPanel implements Runnable{
 				System.out.println("FPS: " + drawCount);
 				drawCount =0;
 				timer = 0;
+			}
+			if(move == false) {
+				player.speed = 0;
 			}
             requestFocusInWindow();
 		}

@@ -21,6 +21,7 @@ public class QuestPanel extends BasePanel{
 	
 	public QuestPanel (GamePanel gp) {
 		 super();
+		 GamePanel.move = false;
 		 this.gp = gp;
 		 //init quest buttons 
 		 finish1= new Button ("", 0,0,0,0);
@@ -181,6 +182,7 @@ public class QuestPanel extends BasePanel{
         Main.navigation.show(Main.centerPanel, "Quest");
         
 		if (activeButton == back) {
+			GamePanel.move = true;
 			Main.navigation.show(Main.centerPanel, "Game");
 		}
 	}
