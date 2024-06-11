@@ -3,5 +3,4 @@ Project: Mini farming game
 To do list:
 - Menu screen
 - Instruction screen
-- Home Menu
 - extra stuff
