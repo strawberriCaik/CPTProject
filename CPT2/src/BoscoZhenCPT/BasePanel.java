@@ -17,6 +17,11 @@ import javax.swing.JPanel;
 
 import BoscoZhenCPT.BasePanel.Button;
 
+/*
+ * Bosco Zhen
+ * Purpose: basePanel for all panels except gamePanel. allows all menu panels have similar properties and allows adjustment to certain properties
+ * IMPORTANT: Taken from Ms.Kapustina's "GameTemplate V2" folder 
+ */
 public class BasePanel extends JPanel implements MouseListener, MouseMotionListener{
 	public static final Color MENU_GREEN = new Color(142,226,191);
 	public static final Color BACKGROUND = new Color(248, 248, 248);

@@ -54,9 +54,9 @@ public class ShopPanel extends BasePanel{
 	public void getImage() {
 
 		try {//scan images from res folder and then goes into player package and take image and create
-			buyM = ImageIO.read(getClass().getResourceAsStream("/tiles/buyM.png"));
-			itemsM = ImageIO.read(getClass().getResourceAsStream("/tiles/itemsM.png"));
-			sellM = ImageIO.read(getClass().getResource("/tiles/sellM.png"));
+			buyM = ImageIO.read(getClass().getResourceAsStream("/panels/buyM.png"));
+			itemsM = ImageIO.read(getClass().getResourceAsStream("/panels/itemsM.png"));
+			sellM = ImageIO.read(getClass().getResource("/panels/sellM.png"));
 			
 		}catch(IOException e) {//catch 
 			e.printStackTrace();// prints errors

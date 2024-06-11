@@ -2,6 +2,10 @@ package tile;
 
 import java.awt.image.*;
 
+/*
+ * Bosco Zhen
+ * Purpose: to allow all tiles created to have similar properties or properties adjusted  
+ */
 public class Tile {
 	
 	public BufferedImage image;
