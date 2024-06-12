@@ -29,7 +29,7 @@ public class BasePanel extends JPanel implements MouseListener, MouseMotionListe
 	//Java requires 5 default fonts to be implemented: Serif, SansSerif, Monospaced, Dialog, and DialogInput
 	ArrayList<Button> buttons;
 	ArrayList<Button> questButtons;// button list array for quest finish buttons
-	ArrayList<Button> shopButtons;// button list array for buy buttons 
+	ArrayList<Button> shopButtons;// button list array for buy buttons  
 	Button activeButton;
 	
 	public BasePanel() {

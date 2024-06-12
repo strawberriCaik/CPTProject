@@ -3,9 +3,14 @@ package entity;
 import java.awt.*;
 import java.awt.image.*;
 
+/*
+ * Bosco Zhen
+ * Purpose: to create variables for any subclass of this super class 
+ */
 public class Entity {
-	public int worldX,worldY;
-	public int speed;
+	
+	public int worldX,worldY;//entity location
+	public int speed;//entity speed (per frame)
 	
 	public BufferedImage up1,up2,down1,down2,right1,right2,left1,left2;//store and bring images into program
 	public String direction;//player character direction of where they're facing

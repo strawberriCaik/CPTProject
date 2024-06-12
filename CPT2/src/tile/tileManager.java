@@ -7,11 +7,17 @@ import BoscoZhenCPT.GamePanel;// import gamepanel from different package
 import BoscoZhenCPT.HomePanel;
 import BoscoZhenCPT.Main;
 
+/*
+ * Bosco Zhen
+ * purpose: to manage and import tiles and display them on a map
+ */
+
 public class tileManager {
 	
 	GamePanel gp; // call Gamepanel
 	public Tile [] tile; // array for tiles (buffered image) 
 	public int mapTileNum [] []; // map tiles
+	
 	/* pre: GamePanel gp
 	 * purpose: constructor 
 	 */
@@ -21,7 +27,6 @@ public class tileManager {
 		tile = new Tile [25];// we will create an array of 10 for 10 different tiles 
 		mapTileNum = new int [gp.maxScreenCol][gp.maxScreenRow];//create array with tile sizes  
 		getTileImage();//calls getTileImage method 
-		Main.navigation.show(Main.centerPanel, "Game");
 		loadMap("/maps/map01.txt");// call load map method with txt file location as parameter to load in map
 		
 	}// end of constructor
@@ -56,19 +61,19 @@ public class tileManager {
 			tile [5].image = ImageIO.read(getClass().getResourceAsStream("/tiles/doorBot.png")); // scan image to make new tile for door 
 			tile [5].collision = true;//set collision for door
 			
-			tile [6] = new Tile();
+			tile [6] = new Tile();//tile for windows
 			tile [6].image = ImageIO.read(getClass().getResource("/tiles/window.png"));
 			tile [6].collision = true;
 			
-			tile [7] = new Tile();
+			tile [7] = new Tile();//tile for roof of house
 			tile [7].image = ImageIO.read(getClass().getResource("/tiles/roof.png"));
 			tile [7].collision = true;
 			
-			tile [8] = new Tile();
+			tile [8] = new Tile();//tile for tilled ground
 			tile [8].image = ImageIO.read(getClass().getResource("/tiles/tilled.png"));
 			tile [8].plant = true;
 
-			tile [9] = new Tile();
+			tile [9] = new Tile();//
 			tile [9].image = ImageIO.read(getClass().getResource("/tiles/shop1.png"));
 			tile [9].collision = true;
 			tile [9].interact = true;
@@ -134,8 +139,8 @@ public class tileManager {
 				InputStream is = getClass().getResourceAsStream(filePath);//imports text file from maps package from res folder
 				BufferedReader br = new BufferedReader(new InputStreamReader (is));// read the content inside the text file
 				
-				int col = 0;
-				int row = 0;
+				int col = 0;//col print
+				int row = 0;//row print
 				
 				while(col < gp.maxScreenCol && row < gp.maxScreenRow) {
 					String line = br.readLine();//reads line inside map.txt
@@ -143,8 +148,8 @@ public class tileManager {
 					while (col < gp.maxScreenCol) {
 						String number [] = line.split(" "); //Separate each space from num
 						int num = Integer.parseInt(number[col]);//reads number array string to int
-						mapTileNum [col] [row] = num;
-						col++;
+						mapTileNum [col] [row] = num;//set col row tile read from file
+						col++;//next col
 						
 					}
 					if (col == gp.maxScreenCol) {//if col hits 16, reset and move to next row
@@ -159,6 +164,7 @@ public class tileManager {
 	}
 	
 	/*
+	 * pre: Graphics g2
 	 * purpose: to draw tiles into gamepanel
 	 */
 	public void draw(Graphics2D g2) {

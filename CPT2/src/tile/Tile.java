@@ -8,7 +8,7 @@ import java.awt.image.*;
  */
 public class Tile {
 	
-	public BufferedImage image;
+	public BufferedImage image;// buffer image for images uploaded
 	public boolean collision = false; // boolean for tiles that have collision
 	public boolean breakable = false; // boolean for tiles that can break
 	public boolean interact = false; // boolean for tiles that can be interacted	

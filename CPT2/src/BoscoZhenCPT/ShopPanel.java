@@ -13,33 +13,35 @@ import javax.swing.*;
 import BoscoZhenCPT.BasePanel.Button;
 import tile.Tile;
 
-
+/*
+ * Bosco Zhen
+ * Purpose: shop panel for user to purchase and sell items 
+ */
 public class ShopPanel extends BasePanel{
 
 	JPanel pnl = new JPanel (); //JPanel for shop
-	Button buy,sell,back, inv0,inv1,inv2,inv3,inv4,buyC,buyS,buyCS,buySS; 
-	boolean isShop = true;
+	Button buy,sell,back, inv0,inv1,inv2,inv3,inv4,buyC,buyS,buyCS,buySS; //buttons 
+	boolean isShop = true;//boolean to show buy or sell menu
 	int [] buyMP = {-16,-18,-5,-6, 1};// buy menu prices (carrot, strawberry, carrot seed, and strawberry seed, num to add a value to an item
 	int [] sellMP = {7,8,2,3,-1};// sell menu prices (carrot, strawberry, carrot seed, and strawberry seed, num to subtract a value to an item
-	
-	JLabel imgLabel = new JLabel (new ImageIcon("/tiles/buyM.png"));
-	
-	public BufferedImage buyM, sellM, questsM, itemsM;
+	public BufferedImage buyM, sellM, questsM, itemsM;//images
 		
-	
+	/*
+	 * purpose: constructor 
+	 */
 	public ShopPanel() {
 		 super();
-		GamePanel.move = false;
+		GamePanel.move = false;//stop player movement 
 		// buttons for shop menu navigation 
-		buy = new Button ("Buy", 100,50,200,200);
-		sell = new Button ("Sell", 100,250,200,200);
-		back = new Button ("Back", 100,650,100,100);
+		buy = new Button ("Buy", 100,50,200,200);//buy button
+		sell = new Button ("Sell", 100,250,200,200);//sell button 
+		back = new Button ("Back", 100,650,100,100);//back button
 		
 		//init shopButtons
-		buyC = new Button ("", 0,0,0,0);
-		buyS = new Button ("", 0,0,0,0);
-		buyCS = new Button ("", 0,0,0,0);
-		buySS = new Button ("", 0,0,0,0);
+		buyC = new Button ("", 0,0,0,0);//buy carrots
+		buyS = new Button ("", 0,0,0,0);//buy strawberries
+		buyCS = new Button ("", 0,0,0,0);//buy carrot seeds
+		buySS = new Button ("", 0,0,0,0);//buy strawberry seeds 
 		
 		buttons = new ArrayList<Button>(Arrays.asList(new Button[]{buy,sell,back}));// button array list for shop menu
 		shopButtons = new ArrayList<Button>(Arrays.asList(new Button[]{buyC,buyS,buyCS,buySS}));// button array list for menu
@@ -69,38 +71,37 @@ public class ShopPanel extends BasePanel{
 	
 		g2.setColor(getBackground());
 		g2.fillRect(0, 0, getWidth(), getHeight());
-//		g2.drawImage(buyM,350,50,500,500,null);//print out image buyM onto the shop panel 
 		g2.drawImage(itemsM,350,550,500,65,null);
 		
 		
-		if (isShop) {
+		if (isShop) {//if menu is for buy
 			g2.drawImage(buyM, 350, 50, 500, 500, this);// drawing buyM image
 			//buttons for buy menu
-			generateButtons ("Buy",g);
-		} else {
-		
-			g2.drawImage(sellM, 350, 50, 500, 500, this);
-			generateButtons ("Sell",g);
+			generateButtons ("Buy",g);//generate buy buttons 
+		} else {//if menu is for sell
+			g2.drawImage(sellM, 350, 50, 500, 500, this);//drawing sellM image
+			generateButtons ("Sell",g);//generate sell buttons 
 		}
 		
 		
-		//drawing inventory text 
-		inv0 = new Button (""+GamePanel.inventory[0], 420,570,20,20);
-		inv1 = new Button (""+GamePanel.inventory[1], 510,570,20,20);
-		inv2 = new Button (""+GamePanel.inventory[2], 600,570,20,20);
-		inv3 = new Button (""+GamePanel.inventory[3], 695,570,20,20);
-		inv4 = new Button (""+GamePanel.inventory[4], 770,570,60,20);
+		//creating inventory text 
+		inv0 = new Button (""+GamePanel.inventory[0], 420,570,20,20);//inventory text for carrot seeds 
+		inv1 = new Button (""+GamePanel.inventory[1], 510,570,20,20);//inventory text for strawberry seeds 
+		inv2 = new Button (""+GamePanel.inventory[2], 590,570,40,20);//inventory text for carrots
+		inv3 = new Button (""+GamePanel.inventory[3], 685,570,40,20);//inventory text for strawberries
+		inv4 = new Button (""+GamePanel.inventory[4], 770,570,60,20);//inventory text for money
 
-		inv0.draw(g);
-		inv1.draw(g);
-		inv2.draw(g);
-		inv3.draw(g);
-		inv4.draw(g);
+		//drawing inventory text
+		inv0.draw(g);//draw carrot seeds text
+		inv1.draw(g);//draw strawberry seeds text
+		inv2.draw(g);//draw carrot text
+		inv3.draw(g);//draw strawberry text
+		inv4.draw(g);//draw money text
 		
 		// drawing shop menu buttons 
-		buy.draw(g);
-		sell.draw(g);
-		back.draw(g);
+		buy.draw(g);//draw buy button
+		sell.draw(g);//draw sell button
+		back.draw(g);//draw back button
 		
 		
 	}
@@ -114,17 +115,14 @@ public class ShopPanel extends BasePanel{
 		for (int i = 0; i< shopButtons.size();i++) {//for loop to print buy buttons 
 			int offset = 0;// add extra distance when there is gap in menu
 			if (i > 1) {
-				offset = 60;
+				offset = 60;//add this much to y to create a gap 
 			}
 			
-			//Button tempButton = new Button (message, 770,y+(i*60)+offset,60,30);// drawing button with message 
-			shopButtons.get(i).label = message;
-			shopButtons.get(i).x = 770;
-			shopButtons.get(i).y = y+(i*60)+offset;
-			shopButtons.get(i).width = 60;
-			shopButtons.get(i).height = 30;
-			
-			//shopButtons.set(i, tempButton);// updating button in array
+			shopButtons.get(i).label = message;//setting button name
+			shopButtons.get(i).x = 770;//setting x location
+			shopButtons.get(i).y = y+(i*60)+offset;//setting y location
+			shopButtons.get(i).width = 60;//setting width size
+			shopButtons.get(i).height = 30;//setting height size
 			shopButtons.get(i).draw(g);// draw button from array
 			
 		}
@@ -132,57 +130,59 @@ public class ShopPanel extends BasePanel{
 	
 	
 	/*
-	 * 
+	 * pre: MouseEvent e
+	 * purpose: to detect when mouse is released on a button to perform an action 
 	 */
 	
 	@Override public void mouseReleased(MouseEvent e) {
 	
 		int [] tempPriceArray;// temp array for menu prices (for sell and buy)
-		if (isShop) {
+		
+		if (isShop) {//if shop then 
 			tempPriceArray = buyMP;//take buy prices
 		} else {
 			tempPriceArray = sellMP;// take sell prices
 		}
 		
+		//activation buttons 
 		if(activeButton == buy) {
-			isShop=true;
-		
+			isShop=true;//set shop is true so that buy menu prices are on
 		}
 		if(activeButton == sell) {
-			isShop=false;
+			isShop=false;//set shop is false so that sell menu prices are on
 		}
 		if (activeButton == buyC) {
-			if ((GamePanel.inventory[4] + tempPriceArray[0] >= 0 && isShop) || (GamePanel.inventory[2] > 0 && !isShop)) {
-				GamePanel.inventory[2]+=tempPriceArray[4];
-				GamePanel.inventory[4] = GamePanel.inventory[4] + tempPriceArray[0];
+			if ((GamePanel.inventory[4] + tempPriceArray[0] >= 0 && isShop) || (GamePanel.inventory[2] > 0 && !isShop)) {//check if user has enough 
+				GamePanel.inventory[2]+=tempPriceArray[4];//add or sub carrot 
+				GamePanel.inventory[4] = GamePanel.inventory[4] + tempPriceArray[0];//add or sub money
 			}
 		}
 		if (activeButton == buyS) {
-			if ((GamePanel.inventory[4] + tempPriceArray[1] >= 0 && isShop) || (GamePanel.inventory[3] > 0 && !isShop)) {
-				GamePanel.inventory[3]+=tempPriceArray[4];
-				GamePanel.inventory[4] = GamePanel.inventory[4] + tempPriceArray[1];
+			if ((GamePanel.inventory[4] + tempPriceArray[1] >= 0 && isShop) || (GamePanel.inventory[3] > 0 && !isShop)) {//check if user has enough
+				GamePanel.inventory[3]+=tempPriceArray[4];//add or sub strawberry
+				GamePanel.inventory[4] = GamePanel.inventory[4] + tempPriceArray[1];//add or sub money
 			}
 		}
 		if (activeButton == buyCS) {
-			if ((GamePanel.inventory[4] + tempPriceArray[2] >= 0 && isShop) || (GamePanel.inventory[0] > 0 && !isShop)) {
-				GamePanel.inventory[0]+=tempPriceArray[4];
-				GamePanel.inventory[4] = GamePanel.inventory[4] + tempPriceArray[2];
+			if ((GamePanel.inventory[4] + tempPriceArray[2] >= 0 && isShop) || (GamePanel.inventory[0] > 0 && !isShop)) {//check if user has enough
+				GamePanel.inventory[0]+=tempPriceArray[4];//add or sub carrot seeds 
+				GamePanel.inventory[4] = GamePanel.inventory[4] + tempPriceArray[2];//add or sub money
 			}
 		}
 		if (activeButton == buySS) {
-			if ((GamePanel.inventory[4] + tempPriceArray[3] >= 0 && isShop) || (GamePanel.inventory[1] > 0 && !isShop)) {
-				GamePanel.inventory[1]+=tempPriceArray[4];
-				GamePanel.inventory[4] = GamePanel.inventory[4] + tempPriceArray[3];
+			if ((GamePanel.inventory[4] + tempPriceArray[3] >= 0 && isShop) || (GamePanel.inventory[1] > 0 && !isShop)) {//check if user has enough
+				GamePanel.inventory[1]+=tempPriceArray[4];// add or sub strawberry seeds 
+				GamePanel.inventory[4] = GamePanel.inventory[4] + tempPriceArray[3];// add or sub money
 			}
 		}
 		
 		//needs to swap to game panel to allow the shop panel to refresh
-        Main.navigation.show(Main.centerPanel, "Game");
-        Main.navigation.show(Main.centerPanel, "Shop");
+        Main.navigation.show(Main.centerPanel, "Game");//swap to game panel
+        Main.navigation.show(Main.centerPanel, "Shop");//swap back to shop panel
         
         if(activeButton == back) {
-        	GamePanel.move = true;
-			Main.navigation.show(Main.centerPanel, "Game");
+        	GamePanel.move = true;//allow player movement 
+			Main.navigation.show(Main.centerPanel, "Game");//swap to game panel
 		}
 	}
 

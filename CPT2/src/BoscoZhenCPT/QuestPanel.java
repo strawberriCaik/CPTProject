@@ -78,8 +78,8 @@ public class QuestPanel extends BasePanel{
 		g2.drawImage(itemsM,350,650,500,65,null);//drawing inventory image
 		inv0 = new Button (""+GamePanel.inventory[0], 420,670,20,20);//init inventory slot 1
 		inv1 = new Button (""+GamePanel.inventory[1], 510,670,20,20);//init inventory slot 2
-		inv2 = new Button (""+GamePanel.inventory[2], 600,670,20,20);//init inventory slot 3
-		inv3 = new Button (""+GamePanel.inventory[3], 695,670,20,20);//init inventory slot 4
+		inv2 = new Button (""+GamePanel.inventory[2], 590,670,40,20);//init inventory slot 3
+		inv3 = new Button (""+GamePanel.inventory[3], 685,670,40,20);//init inventory slot 4
 		inv4 = new Button (""+GamePanel.inventory[4], 770,670,60,20);//init inventory slot 5
 		
 		//drawing inventory buttons 

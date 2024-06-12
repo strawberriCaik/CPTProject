@@ -8,6 +8,11 @@ import javax.imageio.ImageIO;
 
 import BoscoZhenCPT.*;
 
+/*
+ * Bosco Zhen
+ * Purpose: player attributes customized from entity class 
+ */
+
 public class Player extends Entity {
 	GamePanel gp; //import GamePanel Class
 	KeyHandler keyH;// import KeyHandler Class
@@ -17,32 +22,36 @@ public class Player extends Entity {
 	 *  Purpose: constructor
 	 */
 	public Player (GamePanel gp, KeyHandler keyH) {
-		this.gp = gp;
-		this.keyH = keyH;
+		this.gp = gp;//gamepanel
+		this.keyH = keyH;//keylistener 
 		solidArea = new Rectangle();//creates invisible rectangle for collisions
+		
 		//initialize rectangle  
 		solidArea.x = 8;
 		solidArea.y = 16;
 		solidArea.width = 32;
 		solidArea.height = 32;
-		setDefaultValues();
-		getPlayerImage();
-		GamePanel.inventory [0] = 0;
-		GamePanel.inventory [1] = 0;
-		GamePanel.inventory [2] = 0;
-		GamePanel.inventory [3] = 0;
-		GamePanel.inventory [4] = 500;
+		setDefaultValues();//call method to set default values 
+		getPlayerImage();//call method to get images for player 
+		
+		//setting player inventory values 
+		GamePanel.inventory [0] = 0;//carrot seeds
+		GamePanel.inventory [1] = 0;//strawberry seeds
+		GamePanel.inventory [2] = 0;//carrot
+		GamePanel.inventory [3] = 0;//strawberry
+		GamePanel.inventory [4] = 500;//money
 		
 	}
 	/*
 	 * purpose: set default values of player
 	 */
 	public void setDefaultValues () {
-		worldX=100;
-		worldY=100;
-		speed = 3;
-		direction = "down";
+		worldX=100;//starting x 
+		worldY=100;//starting y
+		speed = 3;//starting speed
+		direction = "down";//direction facing when starting
 	}
+	
 	/*
 	 * purpose: get images from res folder and put them into player class 
 	 */
@@ -62,6 +71,7 @@ public class Player extends Entity {
 			e.printStackTrace();// handles errors
 		}
 	}
+	
 	/* Purpose: to update character position 
 	 * 
 	 */
@@ -109,29 +119,27 @@ public class Player extends Entity {
 				}
 				spriteCounter =0;// reset counter
 			}
-			
-			
-		}// end of if 
+		}// end of if for checking if movement is on
 		
 		else {//makes it that character stands still up instead of looking weird when it stops walking left or right
 			spriteNum = 1;
 		}// end of else 
-		if (keyH.Tbreakable == true) {
-			gp.cChecker.interactTile(this);
+		if (keyH.Tbreakable == true) {//check if player pressed break tile
+			gp.cChecker.interactTile(this);//check if tile can break
 		}
-		keyH.Tbreakable = false;
-		if (keyH.Plant1 == true) {
-			GamePanel.carrot = true;
-			gp.cChecker.interactTile(this);
+		keyH.Tbreakable = false;//turn of tile breaker 
+		if (keyH.Plant1 == true) {//check if player pressed plant for carrot seeds 
+			GamePanel.carrot = true;//allow carrot seed to be placed
+			gp.cChecker.interactTile(this);//check if carrot can be placed
 		}
-		keyH.Plant1 = false;
-		if (keyH.Plant2 == true) {
-			GamePanel.strawberry = true;
-			gp.cChecker.interactTile(this);
+		keyH.Plant1 = false;//turn off carrot seed 
+		if (keyH.Plant2 == true) {//check if player pressed plant for strawberry seeds 
+			GamePanel.strawberry = true;//allow strawberry seed to be placed
+			gp.cChecker.interactTile(this);//check if carrot can be placed 
 		}
-		GamePanel.carrot = false;
-		GamePanel.strawberry = false;
-		keyH.Plant2 = false;
+		GamePanel.carrot = false;//turn off carrot
+		GamePanel.strawberry = false;//turn of strawberry
+		keyH.Plant2 = false;//turn off strawberry seeds 
 	}// end of method 
 	
 	/*Purpose: to redraw things in JPanel
@@ -143,37 +151,37 @@ public class Player extends Entity {
 		case "up": //if up, set player looking up
 			//character will look like its walking when changing how it moves when walking in this direction
 			if (spriteNum == 1) {
-				image = up1;
+				image = up1;//first direction 
 			}
 			if (spriteNum == 2) {
-				image = up2;
+				image = up2;//second direction
 			}
 			break;
 		case "down"://if down, set player looking down
 			//character will look like its walking when changing how it moves when walking in this direction
 			if (spriteNum == 1) {
-				image = down1;
+				image = down1;//first direction 
 			}
 			if (spriteNum == 2) {
-				image = down2;
+				image = down2;//second direction
 			}
 			break;
 		case "left"://if left, set player looking left
 			//character will look like its walking when changing how it moves when walking in this direction
 			if (spriteNum == 1) {
-				image = left1;
+				image = left1;//first direction 
 			}
 			if (spriteNum == 2) {
-				image = left2;
+				image = left2;//second direction
 			}
 			break;
 		case "right"://if right, set player looking right
 			//character will look like its walking when changing how it moves when walking in this direction
 			if (spriteNum == 1) {
-				image = right1;
+				image = right1;//first direction 
 			}
 			if (spriteNum == 2) {
-				image = right2;
+				image = right2;//second direction 
 			}
 			break;
 		}
