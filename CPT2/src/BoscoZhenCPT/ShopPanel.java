@@ -65,6 +65,10 @@ public class ShopPanel extends BasePanel{
 		}
 	}
 	
+	/*
+	 * pre: Graphics g
+	 * purpose: to print images and call generate buttons methods 
+	 */
 	@Override public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D)g;// convert Graphics g into Graphics 2D
 		

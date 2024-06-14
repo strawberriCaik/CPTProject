@@ -99,7 +99,7 @@ public class GamePanel extends JPanel implements Runnable{
 	}
 	
 	/*Purpose: to redraw things in JPanel
-	 * 
+	 * pre: Graphics g
 	 */
 	public void paintComponent (Graphics g) {
 		

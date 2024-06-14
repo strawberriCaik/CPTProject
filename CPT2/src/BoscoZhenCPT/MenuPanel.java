@@ -22,6 +22,9 @@ public class MenuPanel extends BasePanel {
 	Button start, instructions;//buttons 
 	public BufferedImage Menu;//images 
 	
+	/*
+	 * purpose: constructor 
+	 */
 	public MenuPanel() {
 		super();
 		start = new Button("Start", (Main.WINDOW_WIDTH - 80)/2, 200, 80, 30);//set start button location 

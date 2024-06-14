@@ -143,7 +143,7 @@ public class Player extends Entity {
 	}// end of method 
 	
 	/*Purpose: to redraw things in JPanel
-	 * 
+	 * pre: Graphics2D g2
 	 */
 	public void draw (Graphics2D g2) {
 		BufferedImage image  = null;//player image

@@ -16,6 +16,9 @@ public class InstructionsPanel extends BasePanel {
 	Button back1;//buttons 
 	public BufferedImage IMenu;//images 
 	
+	/*
+	 * purpose: Constructor
+	 */
 	public InstructionsPanel() {
 		super();
 		back1 = new Button("Back",10,700,60,40);

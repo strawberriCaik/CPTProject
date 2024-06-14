@@ -11,14 +11,14 @@ public class CollisionChecker {
 	GamePanel gp; //gamePanel variable that allows access to GamePanel Class
 	int harvest = 1;//value/num of crops a user gets when harvesting from a plant
 	
-	/*
+	/*pre: GamePanel gp
 	 * Purpose: Constructor
 	 */
 	public CollisionChecker(GamePanel gp) {
 		this.gp = gp;
 	}
 	
-	/* 
+	/* pre: Entity e
 	 * Purpose: check collision with all objects (player, npcs, etc)
 	 */
 	public void checkTile(Entity e) {

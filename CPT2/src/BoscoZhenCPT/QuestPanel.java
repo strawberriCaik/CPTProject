@@ -21,6 +21,10 @@ public class QuestPanel extends BasePanel{
 	public BufferedImage questM,quest1,quest2,quest3,quest4,quest5,itemsM,check;//images
 	public boolean [] lock = new boolean [5];//set all locks to false 
 	
+	/*
+	 * pre: GamePanel gp
+	 * purpose: constructor
+	 */
 	public QuestPanel (GamePanel gp) {
 		 super();
 		 GamePanel.move = false;//set player movement to 0 

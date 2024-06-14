@@ -17,7 +17,7 @@ public class HomePanel extends BasePanel {
 	public BufferedImage sleeping; //buffered images for class
 	public boolean first = false; //this is for the timer where it will first show sleeping picture then return to gamepanel
 	
-	/*
+	/* pre: GamePanel gp
 	 * purpose: constructor 
 	 */
 	public HomePanel(GamePanel gp) {
@@ -40,7 +40,7 @@ public class HomePanel extends BasePanel {
 		}
 	}
 	
-	/*
+	/* pre: Graphics g
 	 * purpose: paintComponent method to allow images to be drawn in class 
 	 */
 	@Override public void paintComponent(Graphics g) {
